@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Visit Report: Poultry Keeping</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ecf0f1;
+            --accent-color: #2ecc71;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-main: #f5f5f5;
+            --text-muted: #b3b3b3;
+            --border-color: #444444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1200&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            background: rgba(39, 174, 96, 0.9);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Images */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--card-bg);
+            overflow-x: auto;
+            display: block;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Lists */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Code/Chart blocks */
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+
+        /* Floating Controls */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @media print {
+            .controls, header { display: none; }
+            body { background: white; color: black; }
+            section { box-shadow: none; margin-bottom: 20px; padding: 0; }
+            table { display: table; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Field Visit Report: Poultry Keeping Practices</h1>
+        <p><strong>ZOO7603P-E: Applied Zoology (Practical) | B.Sc. Semester VI</strong></p>
+        <p>Fakhruddin Poultry Farm, Regional Area / Nasirabad Road, Ajmer, Rajasthan</p>
+        <div class="student-info">
+            <i class="fas fa-user-graduate"></i> Submitted By: Ajayraj Singh Rathore
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="introduction">
+            <h2>1. Introduction and Objectives</h2>
+            <p>Ajmer is historically recognized as the poultry hub ("Egg Bowl") of Rajasthan due to its central connectivity, dry climate favorable for disease suppression, and established grain and feed supply chains. This field report documents commercial poultry keeping practices observed during a study visit to <strong>Fakhruddin Poultry Farm, Ajmer</strong>.</p>
+            
+            <div class="img-grid">
+                <div class="img-card">
+                    <img src="https://images.unsplash.com/photo-1598132961559-4fa2c6a012a6?q=80&w=600&auto=format&fit=crop" alt="Commercial Poultry Farm">
+                    <div class="caption">Fig 1: Typical commercial shed setup in semi-arid regions.</div>
+                </div>
+                <div class="img-card">
+                    <img src="https://images.unsplash.com/photo-1589408643867-6cd8be8daeb7?q=80&w=600&auto=format&fit=crop" alt="Egg Collection">
+                    <div class="caption">Fig 2: Layer hens in production phase.</div>
+                </div>
+            </div>
+
+            <h3>Objectives of the Field Study</h3>
+            <ul>
+                <li>To study the biological characteristics, lifecycle stages, and strain characteristics of <em>Gallus gallus domesticus</em>.</li>
+                <li>To examine poultry housing, environmental management, and feed formulation suited to the semi-arid climate of Rajasthan.</li>
+                <li>To evaluate biosecurity, immunization schedules, and disease management protocols.</li>
+                <li>To analyze commercial viability, input-output economics, and entrepreneurial opportunities.</li>
+            </ul>
+        </section>
+
+        <section id="profile">
+            <h2>2. Farm Profile Overview</h2>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Farm Specifications</th>
+                </tr>
+                <tr>
+                    <td><strong>Farm Name</strong></td>
+                    <td>Fakhruddin Poultry Farm</td>
+                </tr>
+                <tr>
+                    <td><strong>Location</strong></td>
+                    <td>Ajmer District, Rajasthan</td>
+                </tr>
+                <tr>
+                    <td><strong>Operational Focus</strong></td>
+                    <td>Commercial Layer Production</td>
+                </tr>
+                <tr>
+                    <td><strong>Current Flock Strength</strong></td>
+                    <td>~15,000 Birds (Multi-tier battery cage system)</td>
+                </tr>
+                <tr>
+                    <td><strong>Commercial Strain</strong></td>
+                    <td>BV-300 (Babcock Layer)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="biology">
+            <h2>3. Biology and Physiology of the Animal</h2>
+            <h3>Reproductive Biology (Hen)</h3>
+            <p>Only the left ovary and left oviduct are functional. Egg progression takes approximately 24 to 26 hours:</p>
+            <ul>
+                <li><strong>Infundibulum (15–30 min):</strong> Fertilization site and yolk capture.</li>
+                <li><strong>Magnum (2.5–3 hours):</strong> Secretion of thick and thin albumen proteins.</li>
+                <li><strong>Isthmus (1–1.5 hours):</strong> Formation of inner and outer shell membranes.</li>
+                <li><strong>Uterus (18–20 hours):</strong> Deposition of calcium carbonate (CaCO3) and pigment.</li>
+            </ul>
+<pre>
+Egg Formation Timeline:
+[Yolk Release] -> Infundibulum (20 min) -> Magnum (3 hrs) 
+-> Isthmus (1.2 hrs) -> Shell Gland (20 hrs) -> Oviposition
+</pre>
+        </section>
+
+        <section id="housing">
+            <h2>4. Housing and Rearing Practices</h2>
+            <p>East-to-West shed orientation minimizes direct solar radiation inside the pens. High overhangs and central ridge ventilation exhaust ammonia and hot air. The farm uses elevated 3-tier "A-frame" battery cages.</p>
+            
+            <h3>Rajasthan Summer Management</h3>
+            <p>High temperatures (>40°C) induce severe heat stress. The farm utilizes high-pressure <strong>roof foggers</strong>, wet gunny bag curtains, and continuous overhead air circulators.</p>
+
+            <h3>Nutrition and Feed Formulation</h3>
+            <table>
+                <tr>
+                    <th>Stage / Ration</th>
+                    <th>Age Period</th>
+                    <th>Crude Protein</th>
+                    <th>Primary Ingredients</th>
+                </tr>
+                <tr>
+                    <td><strong>Chick Starter</strong></td>
+                    <td>0 – 6 Weeks</td>
+                    <td>20.0% – 21.5%</td>
+                    <td>Yellow maize, soybean meal, fish meal</td>
+                </tr>
+                <tr>
+                    <td><strong>Layer Phase 1</strong></td>
+                    <td>19 – 45 Weeks</td>
+                    <td>17.5% – 18.5%</td>
+                    <td>Maize, soybean DOC, limestone powder</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="biosecurity">
+            <h2>5. Farm Management & Health</h2>
+            <ul>
+                <li><strong>Footbaths:</strong> Saturated with potassium permanganate (KMnO4) at shed entry points.</li>
+                <li><strong>Vehicle Disinfection:</strong> Wheel spray wash at the farm entrance.</li>
+            </ul>
+            
+            <h3>Routine Vaccination Schedule</h3>
+            <table>
+                <tr>
+                    <th>Bird Age</th>
+                    <th>Target Pathogen</th>
+                    <th>Administration Route</th>
+                </tr>
+                <tr>
+                    <td>Day 5–7</td>
+                    <td>Newcastle Disease (Ranikhet)</td>
+                    <td>Eye drop / Intraocular</td>
+                </tr>
+                <tr>
+                    <td>Day 14</td>
+                    <td>Infectious Bursal Disease (IBD)</td>
+                    <td>Oral (drinking water)</td>
+                </tr>
+                <tr>
+                    <td>Week 6–8</td>
+                    <td>Fowl Pox</td>
+                    <td>Wing-web puncture</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="economics">
+            <h2>6. Entrepreneurship and Economics</h2>
+<pre>
+Total Operating Cost Breakdown:
+- Feed Ingredients:          72%
+- Day-Old Chicks / Pullets:  12%
+- Labor & Supervision:        6%
+- Electricity & Water:        5%
+- Medicine & Vaccines:        3%
+- Depreciation & Misc:        2%
+</pre>
+            <h3>Revenue Streams</h3>
+            <ol>
+                <li><strong>Commercial Table Eggs:</strong> Primary income stream distributed daily to Ajmer and Kishangarh.</li>
+                <li><strong>Spent Hens:</strong> Sold at the end of the 72–76 week laying cycle for meat.</li>
+                <li><strong>Organic Manure:</strong> Dry droppings sold to local mustard farmers.</li>
+            </ol>
+        </section>
+
+        <section id="conclusion">
+            <h2>7. Conclusion</h2>
+            <p>The field visit to Fakhruddin Poultry Farm, Ajmer provided direct insight into the applied principles of zoological sciences, animal nutrition, and large-scale biosecurity management. The operation demonstrates how commercial poultry farming functions efficiently in the semi-arid climate of Rajasthan through appropriate strain selection, climate-controlled housing, and strict health measures.</p>
+        </section>
+
+    </div>
+
+    <div class="controls">
+        <button class="btn" id="themeToggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="btn" onclick="window.print()" title="Save as PDF / Print">
+            <i class="fas fa-print"></i>
+        </button>
+        <button class="btn" id="scrollTop" title="Back to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Feature 1: Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const icon = themeToggleBtn.querySelector('i');
+        
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+            }
+        });
+
+        // Feature 2: Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
